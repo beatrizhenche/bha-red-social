@@ -162,7 +162,9 @@ Este decorador se aplica al método `__str__` de los distintos tipos de publicac
 
 De esta forma, la funcionalidad se define una única vez y se reutiliza en `Tweet`, `Respuesta` y `Retweet`.
 
-En el caso de las publicaciones `Retweet` aparecen tanto los "me gusta" de la publicacion original como los que ha recibido el propio retweet
+En el caso de las publicaciones `Retweet` aparecen tanto los "me gusta" de la publicacion original como los que ha recibido el propio retweet.
+
+Dado que en la corrección del ejercicio se detecta como error el haber modificado el `main.py`, se crea un `main_with_decorator.py` alternativo, y para su ejecución es necesario descomentar el decorador @megusta de las clases `Tweet`, `Respuesta` y `Retweet` y la definición del mismo al incio de `publicacion.py`
 
 ## Datos iniciales
 
@@ -201,6 +203,12 @@ uv run main.py
 ```
 
 El programa carga los usuarios desde el fichero JSON y muestra distintos ejemplos del funcionamiento de la red social: usuarios, seguimientos, publicaciones, "me gusta", hashtags, timeline y tendencias.
+
+Si se quisiera ejecutar teniendo en cuenta el decorador `@megusta` añadido, sería necesario descomentarlo de las clases en `publicacion.py` y ejecutar:
+
+```bash
+uv run main_with_decorator.py
+```
 
 ## Tests
 

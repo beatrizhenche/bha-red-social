@@ -2,13 +2,12 @@
 import re
 from abc import ABC, abstractmethod
 
-
 #Decorador que añade en el str el nº de "me gusta" con el corazón
-def megusta(func):
-    def envoltura(self):
-        print = func(self)
-        return f"{print} ♥ {self.me_gusta}"
-    return envoltura
+#def megusta(func):
+#    def envoltura(self):
+#        print = func(self)
+#        return f"{print} ♥ {self.me_gusta}"
+#    return envoltura
 
 # Establecemos como regla un máximo de caracteres para todas las publicaciones.
 LIMITE_CARACTERES = 280
@@ -49,7 +48,7 @@ class Publicacion(ABC):
 
 
 class Tweet(Publicacion):
-    @megusta # Decorador para añadir los likes 
+    #@megusta # Decorador para añadir los likes 
     def __str__(self):
         # El autor es un Usuario, por eso podemos acceder a .alias.
         return f"{self.autor.alias}: {self.texto}"
@@ -62,7 +61,7 @@ class Respuesta(Publicacion):
         # Guardamos la publicación a la que estamos respondiendo.
         self.original = original
 
-    @megusta # Decorador para añadir los likes
+    #@megusta # Decorador para añadir los likes
     def __str__(self):
         return f"{self.autor.alias} ↩ {self.original.autor.alias}: {self.texto}"
 
@@ -73,7 +72,7 @@ class Retweet(Publicacion):
         # Guardamos dentro del retweet la publicación original completa.
         self.original = original
 
-    @megusta # Decorador para añadir los likes
+    #@megusta # Decorador para añadir los likes
     def __str__(self):
         # self.autor.alias -> alias del usuario que hace el retweet
         # self.original -> usa el __str__ de la publicación original.
