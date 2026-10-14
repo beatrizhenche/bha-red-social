@@ -1,6 +1,6 @@
 import pytest
 
-from red_social.publicacion import Publicacion, Retweet, Tweet
+from red_social.publicacion import Publicacion, Respuesta, Retweet, Tweet
 
 
 @pytest.mark.parametrize(
@@ -69,3 +69,26 @@ def test_retweet_comparte_el_texto_del_original(tweet, luis):
 
     # Comprobamos que el autor del retweet es Luis.
     assert retweet.autor is luis
+
+
+#Test incluidos para la mejora de la correción del ejercicio: 
+
+def test_str_tweet(tweet):
+    # Comprobamos la representación textual de un Tweet.
+    assert str(tweet) == "@ana: Hola a todos #python #pytest"
+
+
+def test_str_respuesta(tweet, luis):
+    # Creamos una respuesta de Luis al tweet de Ana.
+    respuesta = Respuesta(luis, "¡Bienvenida! #Python", tweet)
+
+    # Debe mostrar al autor de la respuesta y al autor del original.
+    assert str(respuesta) == "@luis ↩ @ana: ¡Bienvenida! #Python"
+
+
+def test_str_retweet(tweet, luis):
+    # Creamos un retweet de Luis sobre el tweet de Ana.
+    retweet = Retweet(luis, tweet)
+
+    # Después del símbolo de retweet debe aparecer str(original).
+    assert str(retweet) == "@luis 🔁 @ana: Hola a todos #python #pytest"

@@ -1,0 +1,31 @@
+Errores detectados
+1
+/tests
+La batería comprueba los casos básicos, pero deja sin tests varios comportamientos exigidos, como rechazar un seguimiento duplicado, las representaciones de las publicaciones, las tendencias y los métodos especiales de RedSocial. Por ello, no queda verificada mediante tests una parte significativa de la especificación.
+
+Sugerencias de mejora
+2
+/tests/test_red.py
+Añade casos para tendencias, __contains__, __getitem__ y el orden de __iter__; así ampliarás la cobertura de la red.
+
+/tests/test_publicacion.py
+Sería útil comprobar también el formato de __str__, el contador de me gusta y el caso del hashtag formado solo por #.
+
+Aspectos positivos
+3
+/tests/conftest.py
+Las fixtures ana, luis, tweet y red cumplen la independencia y las relaciones de seguimiento descritas.
+
+/tests/test_red.py
+El test de desde_json emplea mocker.mock_open, comprueba la ruta y la codificación y no depende de un fichero real.
+
+/tests/test_publicacion.py
+Usas parametrize para las validaciones del texto y los hashtags, y pytest.raises para el error esperado.
+
+Sugerencias de mejora
+2
+/red_social
+Puedes unificar espacios en llamadas y definiciones, y reducir algunos comentarios que repiten lo que ya expresa el código. Son mejoras de legibilidad y no afectan a la nota.
+
+/red_social/publicacion.py
+Considera usar un nombre distinto de print dentro del decorador para evitar ocultar el nombre de la función integrada.
