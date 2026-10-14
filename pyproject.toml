@@ -16,3 +16,6 @@ dev = [
     "ruff>=0.16.10",
 ]
 
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

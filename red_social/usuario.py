@@ -13,9 +13,9 @@ class Usuario:
         if otro is self:
             raise ValueError("Un usuario no se puede seguir a sí mismo")
         elif otro in self.seguidos:
-        # Evitamos guardar dos veces al mismo usuario.
+        # Evitamos guardar dos veces el mismo usuario.
             raise ValueError("Este usuario ya le está siguiendo")
-        # Si todo está correcto, guardamos el objeto Usuario  la lista.
+        # Si todo está correcto, guardamos el objeto Usuario en la lista.
         else:
             self.seguidos.append(otro)
 
@@ -36,20 +36,14 @@ class Usuario:
 
     @classmethod
     def desde_dict(cls,datos):
-        # Hace el camino contrario a a_dict().
-        #
-        # Recibe:
-        # {"nombre": "Ana", "alias": "@ana"}
-        #
-        # Y crea:
-        # Usuario("Ana", "@ana")
+        # Hacemos el camino contrario a a_dict().
         return cls(datos["nombre"], datos["alias"])
 
     def __str__(self):
-        # Decide cómo se muestra el objeto cuando hacemos print(usuario).
+        # Decidimos cómo se muestra el objeto cuando hacemos print(usuario).
         return f"{self.nombre} ({self.alias})"
 
     def __eq__(self,otro):
-        # Dos usuarios se consideran iguales cuando tienen el mismo alias.
+        # Consideremos a dos usuarios iguales cuando tienen el mismo alias.
         return self.alias == otro.alias
 

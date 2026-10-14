@@ -29,7 +29,7 @@ def main():
     hola.dar_me_gusta()
     print("\nPublicaciones:")
     for publicacion in red.publicaciones:
-        print(f"  {publicacion}  ♥ {publicacion.me_gusta}")
+        print(f"  {publicacion}") #Comentamos losm likes  " ♥ {publicacion.me_gusta}". Los devuelve el decorador"
     print(f"\nHashtags del tweet de {ana}: {hola.hashtags}")
 
     # 5. Timeline y tendencias
